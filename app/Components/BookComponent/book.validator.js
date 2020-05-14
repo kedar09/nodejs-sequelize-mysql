@@ -44,7 +44,11 @@ exports.deleteBook = async function (req, res) {
     }
 };
 
-exports.getBook = async function (req, res) {
+exports.getAllBook = async function (req, res) {
+    bookController.getAllBook(req, res);
+};
+
+exports.getBookAndAuthor = async function (req, res) {
     const data = req.body;
     const schema = Joi.object({
         bookId: Joi.number().integer().min(0).max(1000).required()
@@ -53,6 +57,6 @@ exports.getBook = async function (req, res) {
     if (error) {
         res.status(400).send({error: error.details[0].message});
     } else {
-        bookController.getBook(req, res);
+        authorController.getBookAndAuthor(req, res);
     }
 };
