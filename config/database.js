@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const AuthorModel = require('../app/Models/Author/author.model');
 const BookModel = require('../app/Models/Book/book.model');
 
-var sequelize = new Sequelize('sequelize', 'root', 'root', {
+let sequelize = new Sequelize('sequelize', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',
 
