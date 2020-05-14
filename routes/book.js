@@ -1,30 +1,20 @@
-var express = require('express');
-var router = express.Router();
-var bookValidator = require('../app/Components/BookComponent/book.validator');
+const express = require('express');
+const router = express.Router();
+const bookValidator = require('../app/Components/BookComponent/book.validator');
 
-// Login user - (body: [email,password]) - (email,password is required)
+// Add Book - (body: [bookName,authorId]) - (bookName,authorId is required)
 router.post('/addBook', bookValidator.addBook);
 
-// Login user - (body: [email,password]) - (email,password is required)
+// Update Book - (body: [bookName,bookId]) - (bookName,bookId is required)
 router.put('/updateBook', bookValidator.updateBook);
 
-// Login user - (body: [email,password]) - (email,password is required)
+// Delete Book - (body: [bookId]) - (bookId is required)
 router.delete('/deleteBook', bookValidator.deleteBook);
 
-// register new user - (body: [email,password,displayName,phoneNumber]) - (email,password is required)
-router.post('/getBook', bookValidator.getBook);
+// Get All Book and Author
+router.get('/getAllBook', bookValidator.getAllBook);
 
-
-// // get user profile - (body: [authId]) - (authId is required)
-// router.post('/getUserProfile', userValidator.getUserProfileById);
-
-// // update user password - (body: [authId,password]) - (authId,password is required)
-// router.put('/updateUserPassword', userValidator.updateUserPassword);
-
-// // update user profile - (body: [authId,displayName,phoneNumber]) - (authId,displayName or phoneNumber is required)
-// router.put('/updateUserProfile', userValidator.updateUserProfile);
-
-// // delete user account (body: [authId]) - (authId is required)
-// router.delete('/deleteUserProfile', userValidator.deleteUserProfile);
+// Get Book and Author - (body: [bookId]) - (bookId is required)
+router.post('/getBookAndAuthor', bookValidator.getBookAndAuthor);
 
 module.exports = router;
