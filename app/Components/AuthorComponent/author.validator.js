@@ -42,17 +42,8 @@ exports.deleteAuthor = async function (req, res) {
     }
 };
 
-exports.getAuthor = async function (req, res) {
-    const data = req.body;
-    const schema = Joi.object({
-        authorId: Joi.number().integer().min(0).max(1000).required()
-    });
-    const {error} = await schema.validate(data);
-    if (error) {
-        res.status(400).send({error: error.details[0].message});
-    } else {
-        authorController.getAuthor(req, res);
-    }
+exports.getAllAuthor = async function (req, res) {
+    authorController.getAllAuthor(req, res);
 };
 
 exports.getAuthorAndBook = async function (req, res) {
